@@ -2,8 +2,7 @@
 // Deprecation warnings with GCC
 //
 
-#define DEPRECATED() __attribute__((__deprecated__))
-#define DEPRECATED_MSG(x) __attribute__ ((__deprecated__(x)))
+#define DEPRECATED(msg) __attribute__((__deprecated__(msg)))
 
 enum DeprecatedEnum {
   kDEValue,
@@ -12,7 +11,7 @@ enum DeprecatedEnum {
 
 enum DeprecatedEnumMessage {
   kDEMValue
-} DEPRECATED_MSG(
+} DEPRECATED(
   "This enum is deprecated because we feel like making you change"
   " your code");
 
