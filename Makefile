@@ -1,19 +1,24 @@
 
 
-TARGETS := copy_and_assign deprecated const
+CXX ?= g++
+
+TARGETS := str copy_and_assign deprecated const
 
 .PHONY: all
 
 all: $(TARGETS)
 
 copy_and_assign: copy_and_assign.cpp
-	g++ -o $@ $^
+	$(CXX) -o $@ $^
 
 deprecated: deprecated.cpp
-	g++ -o $@ $^
+	$(CXX) -o $@ $^
+
+str: str.cpp
+	$(CXX) -o $@ $^
 
 const: const.cpp
-	g++ -o $@ $^
+	$(CXX) -o $@ $^
 
 .PHONY: clean
 clean:
