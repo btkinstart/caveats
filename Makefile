@@ -10,6 +10,7 @@ TARGETS := \
   copy_and_assign \
   deprecated \
   inheritance \
+  stat_mtime_granularity \
   str \
   templated_superclass \
   time \
