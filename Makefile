@@ -1,8 +1,15 @@
-
+#
+#
+#
 
 CXX ?= g++
 
-TARGETS := str copy_and_assign deprecated const
+TARGETS := \
+  const \
+  copy_and_assign \
+  deprecated \
+  inheritance \
+  str
 
 .PHONY: all
 
