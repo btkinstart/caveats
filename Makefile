@@ -5,6 +5,7 @@
 CXX ?= g++
 
 TARGETS := \
+  abort \
   const \
   copy_and_assign \
   deprecated \
