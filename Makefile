@@ -9,7 +9,9 @@ TARGETS := \
   copy_and_assign \
   deprecated \
   inheritance \
-  str
+  str \
+  templated_superclass \
+  virtual
 
 .PHONY: all
 
