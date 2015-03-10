@@ -11,6 +11,7 @@ TARGETS := \
   deprecated \
   inheritance \
   overload_new_delete \
+  sizes \
   stat_mtime_granularity \
   str \
   templated_superclass \
