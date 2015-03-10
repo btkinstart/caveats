@@ -2,11 +2,12 @@
 #
 #
 
-CXX ?= g++
+CC ?= g++ --std=c++11
 
 TARGETS := \
   abort \
   const \
+  constexpr \
   copy_and_assign \
   deprecated \
   inheritance \
@@ -22,8 +23,11 @@ TARGETS := \
 
 all: $(TARGETS)
 
+constexpr: constexpr.cpp
+	$(CC) -o $@ $^
+
 time: time.cpp
-	$(CXX) -o $@ $^ -lrt
+	$(CC) -o $@ $^ -lrt
 
 .PHONY: clean
 clean:
