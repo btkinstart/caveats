@@ -12,7 +12,6 @@ main(int argc, char** argv)
 {
   size(int32_t);
   size(long);
-
   return 0;
 }
 

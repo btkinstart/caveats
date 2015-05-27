@@ -2,13 +2,14 @@
 #
 #
 
-CC ?= g++ --std=c++11
+CC = g++ --std=c++11
 
 TARGETS := \
   abort \
   const \
   constexpr \
   copy_and_assign \
+  cxx11 \
   deprecated \
   inheritance \
   overload_new_delete \
@@ -23,7 +24,7 @@ TARGETS := \
 
 all: $(TARGETS)
 
-constexpr: constexpr.cpp
+%: %.cpp
 	$(CC) -o $@ $^
 
 time: time.cpp
