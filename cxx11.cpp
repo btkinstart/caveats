@@ -2,6 +2,7 @@
 #include <functional>
 #include <iostream>
 #include <string>
+#include <type_traits>
 
 class LambdaFactory {
  public:
@@ -59,6 +60,8 @@ void forward_str(T&& foo) {
   std::cout << "&foo: << " << &foo << std::endl;
 }
 
+class Obj {};
+
 #define V(x) std::cout << #x ": " << x << "\n";
 int main(int argc, char** argv) {
   LambdaFactory* c = new LambdaFactory(1);
@@ -69,10 +72,13 @@ int main(int argc, char** argv) {
   std::cout << "value: " << fcn(1) << "\n";
   std::cout << "c->a: " << c->aa() << "\n";
 
+  std::cout << "\n\n";
   CtorPrinter printer;
   std::cout << "&printer: " << &printer << std::endl;
   forward_str(printer);
 
+  //const Obj obj;
+  //Obj& pobj = std::decay<Obj&>(obj);
   return 0;
 }
 

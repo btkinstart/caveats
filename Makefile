@@ -18,6 +18,7 @@ TARGETS := \
   str \
   templated_superclass \
   time \
+  unique_ptr \
   virtual
 
 .PHONY: all
