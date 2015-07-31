@@ -4,10 +4,27 @@
 #include <vector>
 
 #define LOG std::cout
+#define V(x) std::cout << #x ": " << x << "\n";
 
 class A {
-  public:
+ public:
   int x;
+};
+
+class B {
+  public:
+  constexpr B() noexcept : y(0) {}
+  ~B() noexcept {}
+
+  B(B&& b) = default;
+  B& operator=(B&& b) = default;
+
+
+  int y;
+  std::unique_ptr<A> a;
+
+  B(const B& b) = delete;
+  B& operator=(const B& b) = delete;
 };
 
 void foo(std::unique_ptr<A> a) {
@@ -25,7 +42,6 @@ std::unique_ptr<A> baz() {
   return a;
 }
 
-#define V(x) std::cout << #x ": " << x << "\n";
 int main(int argc, char** argv) {
   // can't convert directly to unique ptr
   // foo(new A);
@@ -35,6 +51,13 @@ int main(int argc, char** argv) {
   foo(bar());
 
   foo(baz());
+
+  std::vector<std::unique_ptr<A>> as;
+  as.push_back(bar());
+
+  std::vector<B> bs;
+  B b;
+  bs.push_back(std::move(b));
   return 0;
 }
 
